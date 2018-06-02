@@ -131,7 +131,7 @@ set.mostraValores();
 // 7.1 SET
 
 // 7.2 Weakset
-
+/*
 var musica = {
   titulo: "o amor nao tem rollback",
   autor: 'sql'
@@ -144,12 +144,12 @@ console.log(musicas)
 
 // DECLARAÇÃO	DE  VARIÁVEIS	COM	CONST	E LET
 //	exemplos
-/*
+
 var objeto = {};	//	objeto
 var numero = 1;	//	numero
 var nome = "Chaves";	//	string
 var lista = [1, 2, 3];	//	lista
-*/
+
 
 var texto = 'texto ';
 var idade = 10;
@@ -157,3 +157,113 @@ var idade = 10;
 console.log(texto + idade);
 
  // 8.1	CONSTANTES	COM	CONST
+
+//const dataNascimento = '21/07/1992';
+
+// dataNascimento = '25/08/1993'; // erro
+
+const pessoa = { nome: 'joao'};
+pessoa.idade = 12;
+console.log(pessoa);
+
+const novaPessoa = {nome: 'maria'};
+
+pessoa = novaPessoa; //erro 
+
+
+
+// 8.2	LET	É	O	NOVO	VAR
+
+function soma(a,b){
+  return a + b;
+}
+let resultado = 0;
+resultado = soma(2, 3);
+
+console.log(resultado);
+
+var id = 1;
+var id = 2 ;
+console.log(id);
+
+// let id = 1; // erro o let ve que tem a vairaiavel ja declarada
+// const id = 1; // mesmco com o let
+
+
+
+// 8.3	 QUAL	 A	 DIFERENÇA, NO	 FINAL	 DAS CONTAS ?
+
+// diferencas de escope entre var  let / const
+
+var mensagem = "ola";
+{
+  var mensagem = "adeus";
+}
+console.log(mensagem); // adeus
+
+// para mudar é necessario cirar uma funcao que delimita o contexto da segunda variavel
+
+var mensagem = "ola";
+function mensagem() {
+  var mensagem = "adeus";
+}
+console.log(mensagem); // olá
+
+// No ES6
+
+const arrayVar = [];
+
+for (var i = 1; i < 5; i++) {
+  arrayVar.push(function() {
+    console.log("var " + i);
+  });
+}
+
+const arrayLet = [];
+
+for (let i = 1; i < 5; i++) {
+  arrayLet.push(function() {
+    console.log("let " + i);
+  });
+}
+// i=10; //bizarro!!! atribui um novo valor
+arrayVar.forEach(function(funcao) {
+  funcao();
+});
+
+arrayLet.forEach(function(funcao) {
+  funcao();
+});
+
+
+
+// Hoisting - nome dado ao comportamento de mover declaracoes para o topo de um escopo (global ou nao)
+// -- signica usar uma variavel ou funcao antes mesmo de decalralas no codigo
+
+imprimirNome('tabata');
+
+function imprimirNome(nome) {
+  console.log(nome)
+}
+
+// no ES6 exizte TEMPORAL DEAD ZONE 
+
+let valor = 0;
+
+if (true) {
+  // novo escopo, tdz do valor comoca
+
+  // ao acessa variavel reference error pq ela e uma variavel que nao foi inicializada
+
+  console.log(valor); // reference error
+
+  let valor; // undefined
+   console.log(valor);//undefined
+
+   valor=1;
+   console.log(valor); //1
+}
+console.log(valor); // 0
+// let e const sao sempre escopados aos blocos mais proximos
+*/
+
