@@ -18,3 +18,22 @@ console.log("has string: " + map.has("string"));
 map.clear;
 console.log("tamanho: " + map.size);
 
+// map é iteravel
+
+var mapa = new Map();
+mapa.set('um', 1);
+mapa.set('dois',2);
+mapa.set('tres', 3);
+
+for (var chave of mapa.keys()){
+  console.log(chave);
+}
+
+for (var valor of mapa.values()){
+  console.log(valor)
+}
+
+for (var entrada of mapa.entries()){
+  console.log(entrada)
+}
+
