@@ -265,5 +265,7 @@ if (true) {
 }
 console.log(valor); // 0
 // let e const sao sempre escopados aos blocos mais proximos
+
+teste
 */
 
